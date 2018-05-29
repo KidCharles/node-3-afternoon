@@ -1,4 +1,4 @@
-const auth = require('../models/users');
+const users = require('../models/users');
 
 let id = 1;
 
@@ -34,11 +34,13 @@ module.exports = {
 
         res.status(200).send(session.user);
     },
+
     signout: (req, res, next) => {
         const { session } = req;
         session.destroy();
         res.status(200).send(req.session);
     },
+
     getUser: (req, res, next) => {
         const { session } = req;
         res.status(200).send(session.user);
